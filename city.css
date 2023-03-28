@@ -47,5 +47,9 @@ body {
 .navWrap{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+}
+
+h3 {
+  text-align: start;
 }

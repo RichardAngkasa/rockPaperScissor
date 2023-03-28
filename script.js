@@ -54,6 +54,9 @@ scissor.addEventListener("click", () => {
   humanState !== 4 ? useHumanState(2) : "";
 });
 
+let humanSkor = 0;
+let robotSkor = 0;
+
 actionGo.addEventListener("click", () => {
   let comp = Math.random();
   const option = ["rock", "paper", "scissor"];
@@ -97,7 +100,18 @@ actionGo.addEventListener("click", () => {
       }
       result.innerHTML = hasil;
       useHumanState(4);
-    }, 1100);
+
+      const humanOutput = document.querySelector(".humanSkor");
+      const robotOutput = document.querySelector(".robotSkor");
+
+      if (hasil == "WIN") {
+        humanSkor += 1;
+        humanOutput.innerHTML = humanSkor;
+      } else if (hasil == "LOSE") {
+        robotSkor += 1;
+        robotOutput.innerHTML = robotSkor;
+      }
+    }, 1000);
 
     actionWrap.removeChild(actionGo);
     actionWrap.appendChild(playAgainTag);
